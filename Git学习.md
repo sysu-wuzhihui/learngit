@@ -6,11 +6,11 @@
 
 集中式：有一个中央服务器，版本库放在中央服务器中。从中央服务器中获取最新的版本，进行修改后，再推送给中央服务器。最大的缺点是需要联网才能工作。而且中央服务器挂了就全挂了。
 
-![image-20200302200701644](image-20200302200701644.png)
+![image-20200302200701644](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200302200701644.png)
 
 分布式：每个人的电脑中都有完整的版本库，工作时不需要联网。理论上可以两两之间交换各自的修改，但是实际上通常有一台电脑充当中央服务器的角色，方便大家的交换。
 
-![image-20200302200636131](image-20200302200636131.png)
+![image-20200302200636131](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200302200636131.png)
 
 集中式代表：CVS,SVN
 
@@ -93,7 +93,7 @@ git reset --hard commit id	//回到回退前的版本
 
 工作区就是存放文件的目录，工作区隐藏目录.git就是版本库。版本库里面含有暂存区（stage或者index）以及默认生成的第一个分支master，以及指向master的指针HEAD。
 
-![image-20200302212142200](image-20200302212142200.png)
+![image-20200302212142200](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200302212142200.png)
 
 add命令把文件修改提交到暂存区，commit命令一次性提交暂存区所有的文件修改。
 
@@ -151,7 +151,7 @@ GitHub是最著名的Git仓库托管提供者，可以免费获得Git远程仓�
 
    出现下图，按提示操作即可。
 
-   ![image-20200303151152152](image-20200303151152152.png)
+   ![image-20200303151152152](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303151152152.png)
 
    此时在用户主目录或者上图自行输入的目录下，出现.ssh文件夹，里面包含id_rsa私钥和id_rsa.pub公钥。
 
@@ -178,23 +178,23 @@ git clone git@github.com:github_id/repository_name.git	//SSH协议，速度更�
 
 一开始的时候，`master`分支是一条线，Git用`master`指向最新的提交，再用`HEAD`指向`master`，就能确定当前分支，以及当前分支的提交点：
 
-![image-20200303163314418](image-20200303163314418.png)
+![image-20200303163314418](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303163314418.png)
 
 每次提交，`master`分支都会向前移动一步，这样，随着你不断提交，`master`分支的线也越来越长。
 
 当我们创建新的分支，例如`dev`时，Git新建了一个指针叫`dev`，指向`master`相同的提交，再把`HEAD`指向`dev`，就表示当前分支在`dev`上：
 
-![image-20200303163451205](image-20200303163451205.png)
+![image-20200303163451205](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303163451205.png)
 
 不过，从现在开始，对工作区的修改和提交就是针对`dev`分支了，比如新提交一次后，`dev`指针往前移动一步，而`master`指针不变：
 
-![image-20200303163528624](image-20200303163528624.png)
+![image-20200303163528624](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303163528624.png)
 
 假如我们在`dev`上的工作完成了，就可以把`dev`合并到`master`上。Git怎么合并呢？最简单的方法，就是直接把`master`指向`dev`的当前提交，就完成了合并（`Fast forward`模式）：
 
-![image-20200303163610166](image-20200303163610166.png)
+![image-20200303163610166](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303163610166.png)
 合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支：
-![image-20200303163631766](image-20200303163631766.png)
+![image-20200303163631766](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303163631766.png)
 
 相关命令：
 
@@ -211,15 +211,15 @@ git branch -d branch_name	//删除分支
 
 如下情景：
 
-![image-20200303165415365](image-20200303165415365.png)
+![image-20200303165415365](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303165415365.png)
 
 这种情况下，Git无法进行快速合并，只能试图把各自的修改合并起来。合并过程可能产生冲突（如同时修改了某个文件的相同部分），这时需要手动编辑相关文件，在当前分支进行一次commit，解决冲突。冲突解决后，成功合并的结果如下。
 
-![image-20200303171931045](image-20200303171931045.png)
+![image-20200303171931045](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303171931045.png)
 
 可以使用` git log --graph --pretty=oneline --abbrev-commit`看分支合并情况。
 
-![image-20200303172159005](image-20200303172159005.png)
+![image-20200303172159005](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303172159005.png)
 
 ### 分支策略
 
@@ -235,11 +235,11 @@ git merge --no-ff -m "merge with no-ff" dev	//提交一个commit，m参数表示
 
 `Fast forward`模式:
 
-![image-20200303163610166](image-20200303163610166.png)
+![image-20200303163610166](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303163610166.png)
 
 普通模式：
 
-![image-20200303173030316](image-20200303173030316.png)
+![image-20200303173030316](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303173030316.png)
 
 在实际开发中，我们应该按照几个基本原则进行分支管理：
 
@@ -251,7 +251,7 @@ git merge --no-ff -m "merge with no-ff" dev	//提交一个commit，m参数表示
 
 结果看起来就是：
 
-![image-20200303174237417](image-20200303174237417.png)
+![image-20200303174237417](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200303174237417.png)
 
 ### bug分支
 
@@ -297,11 +297,11 @@ git rebase
 
 rebase前
 
-![image-20200304111925133](image-20200304111925133.png)
+![image-20200304111925133](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200304111925133.png)
 
 rebase后
 
-![image-20200304112037859](image-20200304112037859.png)
+![image-20200304112037859](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200304112037859.png)
 
 Git把本地提交挪动了位置，放到了`f005ed4 (origin/master) set exit=1`之后。rebase操作前后，最终的提交内容是一致的，但是，我们本地的commit修改内容已经变化了，它们的修改不再基于`d1be385 init hello`，而是基于`f005ed4 (origin/master) set exit=1`，但最后的提交`7e61ed4`内容是一致的。
 
@@ -337,7 +337,7 @@ git push origin :refs/tags/tag_name	//删除远程标签
 
 例如：
 
-![image-20200304134828486](image-20200304134828486.png)
+![image-20200304134828486](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200304134828486.png)
 
 ## Gitee使用
 
@@ -356,7 +356,7 @@ git push github master
 git push gitee master
 ```
 
-![image-20200304135715984](image-20200304135715984.png)
+![image-20200304135715984](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200304135715984.png)
 
 ## 配置Git
 
@@ -404,13 +404,13 @@ git check-ignore -v file	//查看某文件被哪条规则忽略，可用来修�
 
 例如：
 
-![image-20200304142044086](image-20200304142044086.png)
+![image-20200304142044086](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200304142044086.png)
 
 而当前用户的Git配置文件放在用户主目录下的一个隐藏文件`.gitconfig`中。
 
 例如：
 
-![image-20200304142118812](image-20200304142118812.png)
+![image-20200304142118812](https://raw.githubusercontent.com/sysu-wuzhihui/learngit/master/image/image-20200304142118812.png)
 
 可以直接修改配置文件，或者使用`git config`命令。加上`--global`参数后，对当前用户起作用，否则只对当前仓库起作用。
 
