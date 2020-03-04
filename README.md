@@ -1,6 +1,6 @@
 # Git学习
 
-**参考链接:[](https://www.liaoxuefeng.com/wiki/896043488029600)**
+**[参考链接](https://www.liaoxuefeng.com/wiki/896043488029600)**
 
 [toc]
 
