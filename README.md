@@ -2,7 +2,6 @@
 
 **[参考链接](https://www.liaoxuefeng.com/wiki/896043488029600)**
 
-[toc]
 
 ## 集中式与分布式版本控制系统
 
