@@ -30,6 +30,9 @@
     + [忽略特殊文件](#------)
     + [配置文件](#----)
 
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 
 ## 集中式与分布式版本控制系统
 
